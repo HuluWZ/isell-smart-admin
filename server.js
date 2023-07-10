@@ -23,7 +23,7 @@ app.use("/api/auth/", authApi);
 app.use("/api/item/", activityApi);
 
 app.get("/", function (req, res) {
-  res.send("I-Sell-Smart App API Gateway.");
+  res.send("I Sell Smart App API Gateway.");
 });
 
 app.use((err, req, res) => {
