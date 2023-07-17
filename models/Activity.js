@@ -64,5 +64,5 @@ const itemSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Item =  mongoose.model("Item", itemSchema, "Item");
-module.exports = { Item };
+const Activity =  mongoose.model("Item", itemSchema, "Item");
+module.exports = { Activity };
