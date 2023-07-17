@@ -16,12 +16,11 @@ const uploadImages = async (files) => {
 exports.createActivity = async (req, res, next) => {
   try {    
     const activityData = req.body
-    // const optionsData = activityData.options.map((option) => optionsFilter.push(JSON.parse(option)) )
-    // activityData.options = optionsFilter
+    console.log(" Data : ",activityData,req.files)
     let newActivity = await Activity.create(activityData);
     var imageURLList = await uploadImages(req.files)
     // save user token
-    console.log(imageURLList)
+    console.log(" URL -",imageURLList)
     newActivity.images = imageURLList
     res
       .status(201)
