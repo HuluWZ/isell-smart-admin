@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 
 const conditionSchema = mongoose.Schema({
-  power: { type:String,required:[true,"Condition Power is required"],enum:["Yes","No"] },
+  powerOn: { type:String,required:[true,"Condition Power is required"],enum:["Yes","No"] },
   functional: { type: String,required:[true,"Condition Fully Functional is required"],enum:["Yes","No"] },
-  crack: { type: String, required: [true, "Condition Free Of Crack is required"], enum: ["Yes", "No"] },
-  overall:{ type: String, enum: ["Broken", "Scratched","Slighlty Used","Flawless"]}
+  crackFree: { type: String, required: [true, "Condition Free Of Crack is required"], enum: ["Yes", "No"] }
+  // overall:{ type: String, enum: ["Broken", "Scratched","Slighlty Used","Flawless"]}
 },{ _id: false })
 
 const itemSchema = mongoose.Schema(

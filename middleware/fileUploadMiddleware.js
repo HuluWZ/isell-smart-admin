@@ -98,7 +98,7 @@ exports.uploadImages = multer({
   storage: productImageStorage,
   limits: { fileSize: 1024 * 1024 * 5 },
   fileFilter: fileFilter
-}).array("image");
+}).array("images");
 
 exports.cloudUploadTry = multer({ storage: storage }).single("image");
 
