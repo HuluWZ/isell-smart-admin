@@ -15,8 +15,8 @@ const uploadImages = async (files) => {
 
 exports.createActivity = async (req, res, next) => {
   try {    
-    const activityData = JSON.parse(JSON.stringify(req.body))
-    console.log(" Data : ", activityData, req.body);
+    const activityData = req.body
+    console.log(" Data : ", activityData, req.files);
     const nm = activityData.hasOwnProperty("powerOn")
     console.log(" Power On : ", nm);
     activityData.hasOwnProperty("powerOn")?activityData.powerOn = "Yes":activityData.powerOn = "No"

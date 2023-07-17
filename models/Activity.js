@@ -53,7 +53,7 @@ const itemSchema = mongoose.Schema(
       default: "Cash",
       required: [true, "Mode of Payment ['Cash', 'Pickup', 'Paypal', 'Transfer'] is required"],
     },
-    condition: [conditionSchema],
+    condition: conditionSchema,
     status: {
       type: String,
       enum: ['Pending', 'Approved'],
