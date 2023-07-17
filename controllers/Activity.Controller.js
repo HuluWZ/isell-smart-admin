@@ -16,7 +16,18 @@ const uploadImages = async (files) => {
 exports.createActivity = async (req, res, next) => {
   try {    
     const activityData = req.body
-    console.log(" Data : ",activityData,req.files)
+    console.log(" Data : ", activityData, activityData.hasOwnProperty("powerOn"))
+    activityData.hasOwnProperty("powerOn")?activityData.powerOn = "Yes":activityData.powerOn = "No"
+    activityData.hasOwnProperty("functional") ? activityData.functional = "Yes" : activityData.functional = "No"
+    activityData.hasOwnProperty("crackFree") ? activityData.crackFree = "Yes" : activityData.crackFree = "No"
+    const condition = { powerOn: activityData.powerOn, functional: activityData.functional, crackFree: activityData.crackFree }
+    activityData.condition = condition
+    console.log(" Data 1 : ", activityData, activityData.condition)
+    // remove activityData powerOn, functional, crackFree property
+    delete activityData.powerOn
+    delete activityData.functional
+    delete activityData.crackFree
+    console.log(" Data 2 : ", activityData, activityData.condition)
     let newActivity = await Activity.create(activityData);
     var imageURLList = await uploadImages(req.files)
     // save user token
