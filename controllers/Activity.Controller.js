@@ -106,7 +106,7 @@ exports.getActivity = async (req, res) => {
 };
 exports.getAllActivity = async (req, res) => {
   try {
-    const getAll = await Activity.find({});
+    const getAll = await Activity.find({}).sort("-updatedAt");
     return res
       .status(202)
       .send({

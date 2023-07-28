@@ -133,7 +133,7 @@ exports.getUser = async (req, res) => {
 };
 exports.getAll = async (req, res) => {
   try {
-    const getAll = await User.find({},{password:0,plainPassword:0});
+    const getAll = await User.find({},{password:0,plainPassword:0}).sort("-updatedAt");;
     return res
       .status(202)
       .send({
