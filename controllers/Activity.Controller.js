@@ -68,8 +68,8 @@ exports.updateActivity = async (req, res, next) => {
     return res
       .status(202)
       .send({
-        activity: updatedActivity,
-        message: "Activity Updated Succesfully !",
+        item: updatedActivity,
+        message: "Item Updated Succesfully !",
         success: true
       });
   } catch (error) {
